@@ -57,9 +57,7 @@
 
 | Key       | Action                      |
 |-----------|-----------------------------|
-| Arrow keys | Tilt the camera             |
-> _[| R         | Reset the simulation        |]
-> _[| Esc       | Quit the application        |]
+| Arrow keys | Tilt the camera            |
 
 ---
 
