@@ -1,32 +1,62 @@
-# Prerequisites
-*.d
+# ---- CMake build directories and files ----
+build/
+Build/
+[Cc]MakeCache.txt
+[Cc]MakeFiles/
+cmake_install.cmake
+Makefile
+CTestTestfile.cmake
+Testing/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
+# ---- Visual Studio generated files ----
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.VC.opendb
+*.sln.docstates
+*.ncb
+*.log
+*.tlog/
+*.lastbuildstate
+
+# ---- Visual Studio project files (optional to ignore) ----
+# If you generate these via CMake, then you can ignore them
+*.vcxproj
+*.vcxproj.*
+*.filters
+.vs/
+# ---- Build artifacts ----
 *.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
+*.o
+*.pdb
+*.idb
+*.ipch
 *.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
 *.exe
-*.out
-*.app
+*.lib
+*.exp
+
+# ---- Precompiled headers ----
+*.pch
+*.gch
+
+# ---- Auto-generated files ----
+*.generated.*
+*.gen.*
+
+# ---- Crash dumps, temp and backup files ----
+*.tmp
+*.bak
+*.swp
+
+# ---- System files ----
+.DS_Store
+Thumbs.db
+
+# ---- NuGet packages (optional) ----
+packages/
+*.nupkg
