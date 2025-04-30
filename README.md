@@ -17,7 +17,7 @@
 
 ## 📸 Preview
 
-> _[Optional: Insert a screenshot or a gif of the simulation running]_
+![image](https://github.com/user-attachments/assets/d3e62c3a-6d03-4ca2-ad28-53fee1efa73d)
 
 ---
 
