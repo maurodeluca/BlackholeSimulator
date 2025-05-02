@@ -26,8 +26,8 @@ private:
     std::deque<Trail> trail;
 
     // Constants
-    static constexpr int maxTrailLength = 50;
-    static constexpr int steps = 100;
+    static constexpr int maxTrailLength = 200;
+    static constexpr int steps = 500;
     const double rs;
     const int j;
     const double i = 2 * M_PI / steps;

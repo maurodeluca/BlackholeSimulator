@@ -24,7 +24,8 @@
 ## 🔧 Requirements
 
 - C++17 or later
-- [SFML 3.0+](https://www.sfml-dev.org/download.php)
+- [SFML 3.0.0](https://www.sfml-dev.org/download.php)
+- [Boost 1.88.0](https://www.boost.org/users/history/version_1_88_0.html)
 - CMake 3.10+
 
 ---
@@ -37,28 +38,26 @@
    cd BlackholeSimulator
    ```
 
-2. **Configure and build with CMake:**
-   ```bash
-   mkdir build
-   cd build
-   cmake ..
-   cmake --build .
-   ```
+2. **Ensure $SFML_DIR and $BOOST_ROOT environment variable are set and pointing to your SFML and Boost install respectively.
+| SFML_DIR   | /path/to/SFML/lib/cmake/SFML/ |
+| BOOST_ROOT | /path/to/Boost/               |
 
-3. **(Optional) Copy SFML DLLs to the build directory (Windows only):**
-   Copy the following DLLs from your SFML `bin/` folder to the `build/` output directory:
-   - `sfml-graphics-2.dll`
-   - `sfml-window-2.dll`
-   - `sfml-system-2.dll`
+3. **Configure and build with CMake:**
+   ```bash
+   cmake -Wno-dev -B ./build -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+   cmake --build ./build --config $BUILD_TYPE
+   ```
+where $BUILD_TYPE is either Release or Debug.
 
 ---
 
 ## 🧪 Controls
 
-| Key       | Action                      |
-|-----------|-----------------------------|
-| Arrow keys | Tilt the camera            |
-
+| Key        | Action                      |
+|------------|-----------------------------|
+| Arrow keys | Tilt the camera             |
+|    R       | Reset the simulation        |
+|   ESC      | Exit the application        |
 ---
 
 ## 🧬 Physics Notes
@@ -84,7 +83,6 @@ BlackholeSim/
 │   ├── Particle.hpp
 │   ├── LensingMath.hpp
 │   └── ...
-├── assets/          # Optional: shaders, textures, etc.
 ├── CMakeLists.txt
 └── README.md
 ```
