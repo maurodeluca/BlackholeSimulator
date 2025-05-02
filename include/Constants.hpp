@@ -1,6 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+#ifndef M_PI
+constexpr float M_PI = 3.14159295358979323f;
+#endif // M_PI
+
 constexpr float G = 1.0f;
 constexpr float BLACK_HOLE_MASS = 1000.0f;
 constexpr float LIGHT_SPEED = 1.0f;

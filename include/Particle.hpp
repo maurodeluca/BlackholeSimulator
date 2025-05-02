@@ -27,7 +27,7 @@ private:
 
     // Constants
     static constexpr int maxTrailLength = 200;
-    static constexpr int steps = 500;
+    static constexpr int steps = 200;
     const double rs;
     const int j;
     const double i = 2 * M_PI / steps;
