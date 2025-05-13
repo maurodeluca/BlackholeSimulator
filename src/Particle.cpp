@@ -83,8 +83,8 @@ sf::Vector2f Particle::calc_position() {
     double alphavals = bvals * std::cos(varphivals);
     double betavals = -bvals * std::sin(varphivals);
 
-    float x = -static_cast<float>(alphavals * 10 - (SCALE * WINDOW_WIDTH / 2.f));
-    float y = -static_cast<float>(betavals * 10 - (SCALE * WINDOW_HEIGHT / 2.f));
+    float x = -static_cast<float>(SCALE * alphavals - (WINDOW_WIDTH / 2.f));
+    float y = -static_cast<float>(SCALE * betavals - (WINDOW_HEIGHT / 2.f));
 
     return sf::Vector2f(x, y);
 }

@@ -5,29 +5,31 @@
 #include "Particle.hpp"
 #include "Constants.hpp"
 
-sf::Vector2f BLACKHOLE_CENTER{ SCALE * WINDOW_WIDTH / 2.f, SCALE * WINDOW_HEIGHT / 2.f };
-const float BLACKHOLE_RADIUS = 10 * std::sqrt(SCALE * 27.f);
+sf::Vector2f BLACKHOLE_CENTER{ WINDOW_WIDTH / 2.f, WINDOW_HEIGHT / 2.f };
+const float BLACKHOLE_RADIUS = SCALE * std::sqrt(27.f);
 
 std::vector<Particle> initializeParticles() {
     std::vector<Particle> accretionDisk;
 
-    for (double rs = SCALE * 5.0; rs < SCALE * 25.0; rs += SCALE * 5.0)
-         accretionDisk.emplace_back(Particle(rs, 0, 85.0 * M_PI / 180.0));
+    for (int j = 0; j < 2; ++j) {
+        for (double rs = 5.0; rs < 25.0; rs += 5.0)
+            accretionDisk.emplace_back(Particle(rs, j, 85.0 * M_PI / 180.0));
+    }
 
     return accretionDisk;
 }
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode({ (int)SCALE * WINDOW_WIDTH, (int)SCALE * WINDOW_HEIGHT }), "Black Hole Simulation");
+    sf::RenderWindow window(sf::VideoMode({ WINDOW_WIDTH, WINDOW_HEIGHT }), "Black Hole Simulation");
     sf::CircleShape blackHole(BLACKHOLE_RADIUS);
     blackHole.setOrigin(sf::Vector2f(0, 0));
     blackHole.setFillColor(sf::Color::White);
-    blackHole.setPosition({ (SCALE * WINDOW_WIDTH / 2.f) - BLACKHOLE_RADIUS, (SCALE * WINDOW_HEIGHT / 2.f) - BLACKHOLE_RADIUS });
+    blackHole.setPosition({ (WINDOW_WIDTH / 2.f) - BLACKHOLE_RADIUS, (WINDOW_HEIGHT / 2.f) - BLACKHOLE_RADIUS });
 
     std::vector<Particle> accretionDisk = initializeParticles();
 
     // Create the camera view
-    sf::View view(sf::FloatRect(sf::Vector2f(0.f, 0.f), sf::Vector2f((SCALE * WINDOW_WIDTH), (SCALE * WINDOW_HEIGHT))));
+    sf::View view(sf::FloatRect(sf::Vector2f(0.f, 0.f), sf::Vector2f((WINDOW_WIDTH), (WINDOW_HEIGHT))));
 
     while (window.isOpen()) {
         while (const std::optional<sf::Event> event = window.pollEvent()) {
